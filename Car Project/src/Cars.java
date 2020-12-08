@@ -317,18 +317,20 @@ public class Cars extends Application implements BackgroundTo, LosingConditions,
     	
     	final double cy = hacker.getBoundsInLocal().getHeight() / 2;
     	
-    	if (this.hacked) {
-    		this.hackCount = this.hackCount + 1;
-    		bolts.relocate(W/2 - 50 , H/4);
-    	} else {
-    		boolean hack = LosingConditions.isHacked(gCarX, gCarY, hackerX, hackerY,this.hacked);
-    		this.hacked = hack;
-    	}
+    	if(score != 0) {
+    		if (this.hacked) {
+    			this.hackCount = this.hackCount + 1;
+    			bolts.relocate(W/2 - 50 , H/4);
+    		} else {
+    			boolean hack = LosingConditions.isHacked(gCarX, gCarY, hackerX, hackerY,this.hacked);
+    			this.hacked = hack;
+    		}
     	
-    	if (this.hackCount > 100 ) {
-    		this.hackCount = 0;
-    		this.hacked = false;
-    		bolts.relocate(-100, -100);
+    		if (this.hackCount > 100 ) {
+    			this.hackCount = 0;
+    			this.hacked = false;
+    			bolts.relocate(-100, -100);
+    		}
     	}
     	
     	
